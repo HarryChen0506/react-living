@@ -13,7 +13,7 @@ class User extends Component {
     componentDidMount(){
         console.log('组件挂载了');
         console.log('process.env',process.env);
-
+        
     }
     actions(){
         console.log(this.props.getUserInfo)
