@@ -1,24 +1,27 @@
 //计数器页面
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 
-import {getUserInfo} from '../../redux/actions/userInfo.js';
+import * as getUserInfo from '../../redux/actions/userInfo.js';
 
 class User extends Component {
     constructor(props){
         super(props);
+
     }
     componentDidMount(){
         console.log('组件挂载了');
-        fetch('/someapi/user.json').then((response)=>{
-            // console.log('response',response)
-            return response.json()
-        }).then((json)=>{
-            console.log('json',json)
-        })
-
         console.log('process.env',process.env);
 
+    }
+    actions(){
+        console.log(this.props.getUserInfo)
+        this.props.getUserInfo.getUserInfoSuccess({
+            "name": "harry",
+            "intro": "please give me a star"
+        })
+        console.log(this.props.getUserInfo)
     }
     render(){
         const {isLoading, userInfo, errorMsg} = this.props.userInfo;
@@ -34,7 +37,7 @@ class User extends Component {
                           ) 
                     )
                 }
-                <button onClick={()=>this.props.getUserInfo()}>获取用户信息</button>
+                <button onClick={this.actions.bind(this)}>获取用户信息</button>
             </div>
         )
     }
@@ -45,23 +48,9 @@ const mapStateToProps = (state)=>{
         userInfo: state.userInfo 
     }
 }
-// const mapDispatchToProps = (dispatch)=> {
-//     return {
-//         increment: ()=>{
-//              console.log('自增');
-//             dispatch(increment())
-//         }
-// }
 const mapDispatchToProps = (dispatch)=> {
     return {
-        getUserInfo: ()=>{
-            // console.log(123);
-            getUserInfo()(dispatch);
-        }
+        getUserInfo: bindActionCreators(getUserInfo, dispatch)
     }
 }
-
-// export default connect(mapStateToProps, mapDispatchToProps)(User);
-// export default connect((state) => ({userInfo: state.userInfo}), {getUserInfo})(User);
 export default connect(mapStateToProps, mapDispatchToProps)(User);
-
