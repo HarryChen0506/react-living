@@ -9,7 +9,7 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import {AppContainer} from 'react-hot-loader';
 //路由
-import getRouter from './router/router.js';
+import getRouter from 'router/router.js';
 //redux 
 import {Provider} from 'react-redux';
 import store from './redux/store.js'

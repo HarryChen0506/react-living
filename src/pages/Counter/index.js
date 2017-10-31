@@ -1,6 +1,6 @@
 //计数器页面
 import React, { Component } from 'react';
-import {increment, decrement, reset} from '../../redux/actions/counter.js';
+import {increment, decrement, reset} from 'actions/counter.js';
 import {connect} from 'react-redux';
 
 class Counter extends Component {

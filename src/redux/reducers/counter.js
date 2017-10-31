@@ -1,6 +1,6 @@
 
 //reducer  更改状态，通过action 返回某个状态
-import {INCREMENT, DECREMENT, RESET} from '../actions/counter.js';
+import {INCREMENT, DECREMENT, RESET} from 'actions/counter.js';
 
 //初始化状态
 const initState = {

@@ -88,8 +88,17 @@ module.exports = {
         new webpack.optimize.CommonsChunkPlugin({
             name: 'runtime'
         }),
-        new UglifyJSPlugin()
-        
-       
-    ]
+        new UglifyJSPlugin() 
+    ],
+    resolve: {
+        alias: {
+            pages: path.join(__dirname, 'src/pages'),
+            components: path.join(__dirname, 'src/components'),
+            constants: path.join(__dirname, 'src/constants'),
+            router: path.join(__dirname, 'src/router'),
+            static: path.join(__dirname, 'src/static'),
+            actions: path.join(__dirname, 'src/redux/actions'),
+            reducers: path.join(__dirname, 'src/redux/reducers')
+        }
+    }
 }

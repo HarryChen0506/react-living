@@ -71,5 +71,16 @@ module.exports = {
         new webpack.optimize.CommonsChunkPlugin({   //引用资源单独打包
             name: 'vendor'
         })
-    ]
+    ],
+    resolve: {
+        alias: {
+            pages: path.join(__dirname, 'src/pages'),
+            components: path.join(__dirname, 'src/components'),
+            constants: path.join(__dirname, 'src/constants'),
+            router: path.join(__dirname, 'src/router'),
+            static: path.join(__dirname, 'src/static'),
+            actions: path.join(__dirname, 'src/redux/actions'),
+            reducers: path.join(__dirname, 'src/redux/reducers')
+        }
+    }
 }

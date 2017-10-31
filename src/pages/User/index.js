@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import * as getUserInfo from '../../redux/actions/userInfo.js';
+import * as getUserInfo from 'actions/userInfo.js';
 
 class User extends Component {
     constructor(props){
