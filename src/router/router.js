@@ -4,10 +4,10 @@ import React from 'react';
 import {BrowserRouter , HashRouter as Router, Route, Switch, Link, hashHistory, browserHistory} from 'react-router-dom';
 // import {Router, Route ,Link, hashHistory, browserHistory} from 'react-router';
 
-import Home from '../page/Home';
-import Page1 from '../page/Page1';
-import Counter from '../page/Counter';
-import User from '../page/User';
+import Home from '../pages/Home';
+import Page1 from '../pages/Page1';
+import Counter from '../pages/Counter';
+import User from '../pages/User';
 
 
 // console.log('page1',Page1)
