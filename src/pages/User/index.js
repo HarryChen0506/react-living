@@ -11,17 +11,17 @@ class User extends Component {
 
     }
     componentDidMount(){
-        console.log('组件挂载了');
+        console.log('user组件挂载了');
         console.log('process.env',process.env);
-        
+        console.log(this.props)
+
     }
     actions(){
         console.log(this.props.getUserInfo)
         this.props.getUserInfo.getUserInfoSuccess({
             "name": "harry",
             "intro": "please give me a star"
-        })
-        console.log(this.props.getUserInfo)
+        })       
     }
     render(){
         const {isLoading, userInfo, errorMsg} = this.props.userInfo;

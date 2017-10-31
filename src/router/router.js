@@ -14,9 +14,8 @@ import User from '../pages/User';
 
 // console.log('browserHistory',browserHistory)
 
-
-const getRouter = ()=> 
-   (
+const getRouter = ()=> {   
+    return (
         <Router>
             <div>
                 <ul>
@@ -34,6 +33,8 @@ const getRouter = ()=>
             </div>        
         </Router>
     )
+}
+   
     
 console.log('router')
 export default getRouter;

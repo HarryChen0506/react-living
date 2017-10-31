@@ -5,6 +5,14 @@ import './page1.css';
 import img from './images/seat.png';
 
 export default class Page1 extends Component {
+    constructor(props,context){
+        super(props,context)
+    }
+    componentDidMount(){
+        console.log('page组件挂载了');
+        console.log('process.env',process.env);
+        console.log(this.props)
+    }
     render(){
         return (
             <div className="box">
