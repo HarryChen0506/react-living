@@ -20,7 +20,7 @@ class App extends Component {
     }
     componentDidMount() {
         // 获取位置信息
-        let cityName = '上海'
+        let cityName = '南京'
         if (cityName == null) {
             cityName = '北京'
         }

@@ -9,10 +9,10 @@ export function getUserInfoRequest() {
         type: GET_USER_INFO_REQUEST
     }
 }
-export function getUserInfoSuccess(userInfo) {
+export function getUserInfoSuccess(data) {
     return {
         type: GET_USER_INFO_SUCCESS,
-        userInfo: userInfo
+        data: data
     }
 }
 export function getUserInfoFail() {

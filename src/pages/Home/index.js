@@ -12,7 +12,7 @@ class Home extends Component {
     render(){
         return (
             <div>
-                <HomeHeader cityName={this.props.userInfo.userInfo.cityName}/>          
+                <HomeHeader cityName={this.props.userInfo.cityName}/>          
                 <div style={{height: '15px'}}>{/* 分割线 */}</div>
             </div>            
         )
