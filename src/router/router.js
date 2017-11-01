@@ -19,12 +19,6 @@ const getRouter = ()=> {
     return (
         <Router>
             <div>
-                <ul>
-                    <li> <Link to="/">Home页面</Link></li>
-                    <li> <Link to="/page1">Page1页面</Link></li>
-                    <li> <Link to="/counter">Counter页面</Link></li>
-                    <li> <Link to="/user">User页面</Link></li>
-                </ul> 
                 <Switch>
                     <Route exact  path="/" component={Home} ></Route>
                     <Route  path="/page1" component={Page1} ></Route>
