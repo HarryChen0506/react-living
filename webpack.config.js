@@ -52,14 +52,22 @@ module.exports = {
                     use: ["css-loader", "postcss-loader","sass-loader"]
                 })
             },{
-                test: /\.(jpg|gif|png)$/,
+                test: /\.(jpg|gif|png|jpeg|bmp)$/,
                 use: {
                     loader: 'url-loader',
                     options: {
                         limit: 8192
                     }
                 }
-            }
+            },{ 
+                test:/\.(png|woff|woff2|svg|ttf|eot)($|\?)/i, 
+                use: {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 8192
+                        }
+                    }
+            } // 限制大小
         ]
     },
     plugins: [

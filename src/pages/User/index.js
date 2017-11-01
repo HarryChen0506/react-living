@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import * as getUserInfo from 'actions/userInfo.js';
+import * as getUserMsg from 'actions/userMsg.js';
 
 class User extends Component {
     constructor(props){
@@ -17,22 +17,22 @@ class User extends Component {
 
     }
     actions(){
-        console.log(this.props.getUserInfo)
-        this.props.getUserInfo.getUserInfoSuccess({
+        console.log(this.props.getUserMsg)
+        this.props.getUserMsg.getUserMsgSuccess({
             "name": "harry",
             "intro": "please give me a star"
         })       
     }
     render(){
-        const {isLoading, userInfo, errorMsg} = this.props.userInfo;
+        const {isLoading, userMsg, errorMsg} = this.props.userMsg;
         return (
             <div>
                 {
                     isLoading? '正在加载中....' : (
                           errorMsg? errorMsg: (
                                 <div>
-                                    <div>用户: {userInfo.name} </div>
-                                    <div>介绍: {userInfo.intro}  </div>                    
+                                    <div>用户: {userMsg.name} </div>
+                                    <div>介绍: {userMsg.intro}  </div>                    
                                 </div> 
                           ) 
                     )
@@ -45,12 +45,12 @@ class User extends Component {
 
 const mapStateToProps = (state)=>{
     return {
-        userInfo: state.userInfo 
+        userMsg: state.userMsg 
     }
 }
 const mapDispatchToProps = (dispatch)=> {
     return {
-        getUserInfo: bindActionCreators(getUserInfo, dispatch)
+        getUserMsg: bindActionCreators(getUserMsg, dispatch)
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(User);

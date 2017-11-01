@@ -1,29 +1,31 @@
 
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 
-export default class Home extends Component {
+import HomeHeader from 'components/HomeHeader';
+
+class Home extends Component {
     constructor(props,context){
         super(props,context);
-        this.state = {
-            count: 0
-        }
-        this.handlerIncrease = this.handlerIncrease.bind(this);
-    }
-    handlerIncrease(){
-        this.setState({
-            count: ++this.state.count
-        })
-    }
+    }    
     render(){
         return (
             <div>
-                <div>this is Home...!!!. </div>
-                <div>
-                    计数器：{this.state.count}
-                    <p><button onClick={this.handlerIncrease}>自增</button></p>                
-                </div> 
-            </div>
-            
+                <HomeHeader cityName={this.props.userInfo.userInfo.cityName}/>          
+                <div style={{height: '15px'}}>{/* 分割线 */}</div>
+            </div>            
         )
+    }   
+}
+
+const mapStateToProps = (state)=>{
+    return {
+        userInfo: state.userInfo
     }
 }
+const mapDispatchToProps = (dispatch)=> {
+     return {        
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

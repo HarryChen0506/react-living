@@ -13,8 +13,12 @@ import {AppContainer} from 'react-hot-loader';
 import {Provider} from 'react-redux';
 import store from './redux/store.js'
 
+//通用样式
+import 'static/css/common.scss';
+import 'static/css/font-awesome.css';
+
 //App组件
-import App from 'components/App';
+import App from 'pages/App';
 
 // 初始化
 ReactDom.render(
@@ -27,8 +31,8 @@ ReactDom.render(
 )
 //热更新
 if(module.hot){
-    module.hot.accept('components/App/index.js',()=>{
-        const nextApp = require('components/App/index.js').default;
+    module.hot.accept('pages/App/index.js',()=>{
+        const nextApp = require('pages/App/index.js').default;
         ReactDom.render(
             <AppContainer>
                 <Provider store={store}>
