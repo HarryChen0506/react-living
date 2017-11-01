@@ -6,8 +6,10 @@ import combineReducers from './reducers.js';
 
 // let store = createStore(combineReducers, applyMiddleware(thunkMiddleware));
 // http://blog.csdn.net/esther_heesch/article/details/63688516   检测是否安装redux插件
+// window.devToolsExtension  v2.7以下版本使用
+// window.__REDUX_DEVTOOLS_EXTENSION__  v2.7以上版本使用
 let store; 
-if(!(window.__REDUX_DEVTOOLS_EXTENSION__ || window.__REDUX_DEVTOOLS_EXTENSION__)){
+if(!(window.__REDUX_DEVTOOLS_EXTENSION__ || window.devToolsExtension)){
     store = createStore(
        combineReducers, 
        applyMiddleware(thunkMiddleware)
@@ -17,7 +19,8 @@ if(!(window.__REDUX_DEVTOOLS_EXTENSION__ || window.__REDUX_DEVTOOLS_EXTENSION__)
         combineReducers, 
         compose(
             applyMiddleware(thunkMiddleware),
-            window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+            (window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()) || 
+            (window.devToolsExtension && window.devToolsExtension())
         ) //插件调试，未安装会报错
     );
 }
