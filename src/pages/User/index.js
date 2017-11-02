@@ -56,12 +56,13 @@ class User extends Component {
         console.log('get请求')
         let data = {
             name: 'jack',
-            age: 20
+            age: [20,30],
+            bad: false
         }
-        httpService.demo.getData(data).then(resp=>{
-            return resp.json()
-        }).then(data=>{
-            console.log('data',data)
+        httpService.demo.getData(data).then(function(data){
+            console.log('成功',data)
+        },function(err){
+             console.log('失败',err)
         })
         // console.log()
     }
@@ -69,14 +70,14 @@ class User extends Component {
         console.log('post请求');
         let data = {
             name: 'jack',
-            age: 20
+            age: {
+                hha: 20
+            }
         }
-        httpService.demo.postData(data).then(resp=>{
-            return resp.json()
-        }).then(data=>{
-            console.log('data',data)
-        }).catch(function(error) {
-            console.log('[request failed]', error)
+        httpService.demo.postData(data).then(function(data){
+            console.log('成功',data)
+        },function(err){
+             console.log('失败',err)
         })
     }
 

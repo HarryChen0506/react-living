@@ -3,11 +3,11 @@ import 'whatwg-fetch';
 import * as http from './fetch/fetch.js'  //{ httpGet, httpPostJson}
 
 const demo = {
-    getData: function(data){
-        return http.httpGet('/api/userInfo.json')
+    getData: function(params){
+        return http.httpGet('/api/userInfo.json',params)
     },
     postData: function(data){
-        return http.httpPostJson('/api/userInfo.json',data)
+        return http.httpPost('/api/userInfo.json',data)
     }
 }
 
