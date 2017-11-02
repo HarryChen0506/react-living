@@ -32,9 +32,9 @@ module.exports = {
         host: '0.0.0.0',  //支持ip来访问页面，否则只能通过localhost:8088来访问
         historyApiFallback: true,  //所有404页面能跳转到index.html
         proxy: {
-            '/someapi': {
-                target: 'http://localhost:7088',
-                pathRewrite: {'/someapi' : '/api'},  //重写HTTP请求，其主要作用就是移除URL前面的/api部分               
+            '/api': {
+                target: 'http://localhost:3001',
+                pathRewrite: {'/api' : ''},  //重写HTTP请求，其主要作用就是移除URL前面的/api部分               
             }
         },
         hot: true

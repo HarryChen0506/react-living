@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack --config webpack.dev.config.js",
     "start": "webpack-dev-server --config webpack.dev.config.js --color --progress",
-    "build": "webpack --config webpack.config.js"
+    "build": "webpack --config webpack.config.js",
+    "mock": "node ./mock_express/bin/www"
   },
   "repository": {
     "type": "git",
@@ -33,6 +34,8 @@
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.5",
     "html-webpack-plugin": "^2.30.1",
+    "koa": "^2.3.0",
+    "koa-router": "^7.2.1",
     "node-sass": "^4.5.3",
     "postcss-cssnext": "^3.0.2",
     "postcss-loader": "^2.0.8",

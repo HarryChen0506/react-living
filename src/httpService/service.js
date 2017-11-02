@@ -33,7 +33,7 @@ function getUrl(url, params){
 
 const demo = {
     getData: function(params){
-        let api = '/api/userInfo.json';
+        let api = '/api/home/ad';
         let url = getUrl(api, params);
         return http.httpGet(url)
     },
