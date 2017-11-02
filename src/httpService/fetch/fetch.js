@@ -58,6 +58,7 @@ export function httpGet(url,params){
 }
 
 export function httpPost(url, data){
+    url = getUrl(url);
     let promise = new Promise(function(resolve, reject){
         fetch(url,{
             method: 'POST',
@@ -81,6 +82,7 @@ export function httpPost(url, data){
 }
 
 export function httpPostJson(url, data){
+    url = getUrl(url);
     let promise = new Promise(function(resolve, reject){
         fetch(url,{
             method: 'POST',
@@ -100,5 +102,73 @@ export function httpPostJson(url, data){
             reject(error)
         })
     })
+    return promise
+}
+
+export function httpPut(url, data){
+    url = getUrl(url);
+    let promise = new Promise(function(resolve, reject){
+        fetch(url,{
+            method: 'PUT',
+            headers: {
+                'Content-Type':'application/x-www-form-urlencoded'
+            },
+            body: obj2Form(data),
+            mode: 'cors',
+            cache: 'default',
+            credentials: 'include'
+        }).then(resp =>{
+            return resp.json()
+        }).then(data =>{
+            resolve(data)
+
+        }).catch(error=>{
+            reject(error)
+        })
+    })
+    return promise
+}
+
+export function httpPutJson(url, data){
+    url = getUrl(url);
+    let promise = new Promise(function(resolve, reject){
+        fetch(url,{
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data),
+            mode: 'cors',
+            cache: 'default',
+            credentials: 'include'
+        }).then(resp =>{
+            return resp.json()
+        }).then(data =>{
+            resolve(data)
+
+        }).catch(error=>{
+            reject(error)
+        })
+    })
+    return promise
+}
+
+export function httpDelete(url,params){
+    url = getUrl(url, params);
+    let promise = new Promise(function(resolve, reject){
+        fetch(url,{
+                method: 'DELETE',
+                mode: 'cors',
+                cache: 'default',
+                credentials: 'include'
+        }).then(resp =>{
+            return resp.json()
+        }).then(data =>{
+            resolve(data)
+
+        }).catch(error=>{
+            reject(error)
+        })
+    });     
     return promise
 }

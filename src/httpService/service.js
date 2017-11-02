@@ -1,6 +1,6 @@
 import 'es6-promise';
 import 'whatwg-fetch';
-import * as http from './fetch/fetch.js'  //{ httpGet, httpPostJson}
+import * as http from './fetch/fetch.js'  //{ httpGet, httpPost(表单格式), httpPostJson（Json格式）}
 
 const demo = {
     getData: function(params){
