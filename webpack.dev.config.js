@@ -88,7 +88,8 @@ module.exports = {
             router: path.join(__dirname, 'src/router'),
             static: path.join(__dirname, 'src/static'),
             actions: path.join(__dirname, 'src/redux/actions'),
-            reducers: path.join(__dirname, 'src/redux/reducers')
+            reducers: path.join(__dirname, 'src/redux/reducers'),
+            httpService: path.join(__dirname, 'src/httpService')
         }
     }
 }

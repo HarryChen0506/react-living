@@ -4,25 +4,17 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
 import * as getUserMsg from 'actions/userMsg.js';
+import httpService from 'httpService/service.js'
 
 class User extends Component {
     constructor(props){
         super(props);
-
     }
     componentDidMount(){
         console.log('user组件挂载了');
         console.log('process.env',process.env);
         console.log(this.props)
-
-    }
-    actions(){
-        console.log(this.props.getUserMsg)
-        this.props.getUserMsg.getUserMsgSuccess({
-            "name": "harry",
-            "intro": "please give me a star"
-        })       
-    }
+    }    
     render(){
         const {isLoading, userMsg, errorMsg} = this.props.userMsg;
         return (
@@ -38,9 +30,56 @@ class User extends Component {
                     )
                 }
                 <button onClick={this.actions.bind(this)}>获取用户信息</button>
+                <div style={{marginTop: '20px'}}>
+                    <button onClick={this.handleGet.bind(this)}> fetch-get请求</button>
+                    <p>
+                        <span>结果:</span>
+                    </p>
+                </div>
+                <div style={{marginTop: '20px'}}>
+                    <button onClick={this.handlePost.bind(this)}> fetch-post请求</button>
+                    <p>
+                        <span>结果:</span>
+                    </p>
+                </div>
             </div>
         )
     }
+    actions(){
+        console.log(this.props.getUserMsg)
+        this.props.getUserMsg.getUserMsgSuccess({
+            "name": "harry",
+            "intro": "please give me a star"
+        })       
+    }
+    handleGet(){
+        console.log('get请求')
+        let data = {
+            name: 'jack',
+            age: 20
+        }
+        httpService.demo.getData(data).then(resp=>{
+            return resp.json()
+        }).then(data=>{
+            console.log('data',data)
+        })
+        // console.log()
+    }
+    handlePost(){
+        console.log('post请求');
+        let data = {
+            name: 'jack',
+            age: 20
+        }
+        httpService.demo.postData(data).then(resp=>{
+            return resp.json()
+        }).then(data=>{
+            console.log('data',data)
+        }).catch(function(error) {
+            console.log('[request failed]', error)
+        })
+    }
+
 }
 
 const mapStateToProps = (state)=>{
