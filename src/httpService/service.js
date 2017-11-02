@@ -38,9 +38,9 @@ const demo = {
         return http.httpGet(url)
     },
     postData: function(data){
-        let api = '/api/userInfo.json';
+        let api = '/api/home/form';
         let url = getUrl(api);
-        return http.httpPost(url, data)
+        return http.httpPostJson(url, data)
     }
 }
 
