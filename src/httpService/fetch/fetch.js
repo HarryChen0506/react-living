@@ -1,6 +1,7 @@
 import 'es6-promise';
 import 'whatwg-fetch';
 
+
 function obj2Form(data){
     var formData = new FormData();
      for(var key in data){
@@ -9,36 +10,7 @@ function obj2Form(data){
      return formData
 }
 
-function formatParams(data) {
-    var arr = [];
-    for (var key in data) {
-         if(!!data[key] || data[key]===0||data[key]===false){
-            if(Array.isArray(data[key])){
-                for(var i=0; i<data[key].length; i++){
-                    arr.push(encodeURIComponent(key) + "=" + encodeURIComponent(data[key][i]))
-                }
-            }else{
-               arr.push(encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-            }
-        }       
-    }
-    arr.push("time=" + new Date().getTime());
-    return arr.join("&");
-}
-
-function getUrl(url, params){   
-    var prefix = "";
-    if(url.indexOf("?")>0){
-        prefix = "&";
-    }else{
-        prefix = "?";
-    }
-    url = url+ prefix+ formatParams(params);
-    return url;
-}   
-
-export function httpGet(url,params){
-    url = getUrl(url, params);
+export function httpGet(url){
     let promise = new Promise(function(resolve, reject){
         fetch(url,{
                 method: 'GET',
@@ -58,7 +30,6 @@ export function httpGet(url,params){
 }
 
 export function httpPost(url, data){
-    url = getUrl(url);
     let promise = new Promise(function(resolve, reject){
         fetch(url,{
             method: 'POST',
@@ -82,7 +53,6 @@ export function httpPost(url, data){
 }
 
 export function httpPostJson(url, data){
-    url = getUrl(url);
     let promise = new Promise(function(resolve, reject){
         fetch(url,{
             method: 'POST',
@@ -106,7 +76,6 @@ export function httpPostJson(url, data){
 }
 
 export function httpPut(url, data){
-    url = getUrl(url);
     let promise = new Promise(function(resolve, reject){
         fetch(url,{
             method: 'PUT',
@@ -130,7 +99,6 @@ export function httpPut(url, data){
 }
 
 export function httpPutJson(url, data){
-    url = getUrl(url);
     let promise = new Promise(function(resolve, reject){
         fetch(url,{
             method: 'PUT',
@@ -153,8 +121,7 @@ export function httpPutJson(url, data){
     return promise
 }
 
-export function httpDelete(url,params){
-    url = getUrl(url, params);
+export function httpDelete(url){
     let promise = new Promise(function(resolve, reject){
         fetch(url,{
                 method: 'DELETE',
