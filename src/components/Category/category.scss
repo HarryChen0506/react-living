@@ -1,0 +1,32 @@
+//轮播图组件css
+
+.carousel {
+    font-size: 12px;   
+    .carousel-box{
+        .carousel-container {
+            .carousel-one{
+                height: 100px;
+                padding: 20px 0;
+                border: 1px solid #000;
+                margin: 5px
+            }
+        }       
+
+    }
+    .dot-box{
+        text-align: center;
+        .dot {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 10px;
+            background-color: red;
+            color: #fff;
+            margin-left: 10px;            
+            line-height: 20px;
+        }
+        .dot.selected {
+            background-color: orange;
+        }  
+    }
+}

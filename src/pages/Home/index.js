@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
 import HomeHeader from 'components/HomeHeader';
+import Category from 'components/Category'
 
 class Home extends Component {
     constructor(props,context){
@@ -14,6 +15,8 @@ class Home extends Component {
             <div>
                 <HomeHeader cityName={this.props.userInfo.cityName}/>          
                 <div style={{height: '15px'}}>{/* 分割线 */}</div>
+                <Category/>
+
             </div>            
         )
     }   
