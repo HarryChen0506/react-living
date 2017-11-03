@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import ReactSwipe from 'react-swipe';
-import './category.scss'
+import './category.scss';
+import img1 from 'static/images/category/138012-20161022224121920-424129491.png'
+
+import categoryList from 'constants/category/categoryList.js'
 
 export default class Category extends Component {
     constructor(props,context){
@@ -13,7 +16,7 @@ export default class Category extends Component {
         let options = {
             startSlide: 0,
             speed: 400,
-            auto: 3000,
+            // auto: 3000,
             continuous: true,
             disableScroll: false,
             stopPropagation: false,
@@ -25,27 +28,23 @@ export default class Category extends Component {
             },
             transitionEnd: function(index, elem) {}
         }
+        let bg = {
+            backgroundImage: "url("+img1+")"
+        }
         return (
             <div className="carousel">
                 <ReactSwipe ref={(reactSwipe)=>{ this.reactSwipe = reactSwipe}} className="carousel-box" swipeOptions={options} >
-                    <div className="carousel-container">
-                        <div className="carousel-one">PANE1</div>
-                    </div>
-                    <div className="carousel-container">
-                        <div className="carousel-one">PANE2</div>
-                    </div>
-                    <div className="carousel-container">
-                        <div className="carousel-one">PANE3</div>
-                    </div>
-                    <div className="carousel-container">
-                        <div className="carousel-one">PANE4</div>
-                    </div>
-                    <div className="carousel-container">
-                        <div className="carousel-one">PANE5</div>
-                    </div>
-                    <div className="carousel-container">
-                        <div className="carousel-one">PANE6</div>
-                    </div>
+
+                    { categoryList.length >0 && categoryList.map((item, index)=>{
+                        return  <ul className="carousel-container clear-fix" key={'box_'+index}>                                    
+                                    { item.map((one, num)=>{
+                                            return  <li key={one.code} className="carousel-one f-left" style={bg}>
+                                                        {one.name}
+                                                        <img src={img1} alt=""/>
+                                                    </li>
+                                    }) }                                   
+                                </ul>
+                    }) }
                 </ReactSwipe> 
                 <div className="dot-box">
                     <div className={this.state.index === 0 ? 'selected dot' : 'dot'} onClick={this.handleSlide.bind(this,0,1000)}>1</div>

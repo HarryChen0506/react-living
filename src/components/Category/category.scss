@@ -4,12 +4,23 @@
     font-size: 12px;   
     .carousel-box{
         .carousel-container {
-            .carousel-one{
-                height: 100px;
-                padding: 20px 0;
-                border: 1px solid #000;
-                margin: 5px
+            ul {
+                width: 100%;
+                height: auto;
             }
+            li.carousel-one {
+                display: block;
+                list-style: none;
+                width: 20%;
+                background-repeat: no-repeat;
+                background-size: 50px auto;
+                background-position: top center;
+                text-align: center;
+                padding-top: 50px;
+                color: #666;
+                font-size: 14px;
+            }
+
         }       
 
     }

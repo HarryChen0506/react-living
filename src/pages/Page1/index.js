@@ -4,6 +4,8 @@ import './page1.scss';
 import './page1.css';
 import img from './images/seat.png';
 
+import img1 from 'static/images/category/138012-20161022224121920-424129491.png'
+
 export default class Page1 extends Component {
     constructor(props,context){
         super(props,context)
@@ -21,6 +23,7 @@ export default class Page1 extends Component {
                 <div><img src={img} alt=""/></div>
                 <pre>{JSON.stringify(this.props.match)}</pre>
                 <h3>测试css</h3>
+                <img src={img} alt=""/>
             </div>
         )
     }
