@@ -43,7 +43,7 @@ export default class Category extends Component {
                     { categoryList.length >0 && categoryList.map((item, index)=>{
                         return  <ul className="carousel-container clear-fix" key={'box_'+index}>                                    
                                     { item.map((one, num)=>{
-                                            return  <li key={one.code} className="carousel-one f-left" style={{backgroundImage: 'url('+ img3 +')'}}>
+                                            return  <li key={one.code} className="carousel-one f-left" style={{backgroundImage: 'url(/api/images/category/'+one.img_url+')'}}>
                                                         {one.name}
                                                     </li>
                                     }) }                                   
