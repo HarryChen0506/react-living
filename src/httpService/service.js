@@ -43,9 +43,17 @@ const demo = {
         return http.httpPostJson(url, data)
     }
 }
+const home = {
+    getAdData: function(params){
+        let api = '/api/home/ad';
+        let url = getUrl(api, params);
+        return http.httpGet(url);
+    }
+}
 
 
 const httpService = {
-    demo
+    demo,
+    home
 }
 export default httpService

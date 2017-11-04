@@ -18,7 +18,7 @@ class App extends Component {
             </div> 
         )
     }
-    componentDidMount() {
+    componentWillMount() {
         // 获取位置信息
         let cityName = '南京'
         if (cityName == null) {
