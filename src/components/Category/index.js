@@ -17,7 +17,7 @@ export default class Category extends Component {
         let options = {
             startSlide: 0,
             speed: 400,
-            // auto: 3000,
+            auto: 4000,
             continuous: true,
             disableScroll: false,
             stopPropagation: false,
@@ -49,7 +49,7 @@ export default class Category extends Component {
                             return <div className={this.state.index === index ? 'selected dot' : 'dot'} 
                                         onClick={this.handleSlide.bind(this,index,1000)}
                                         key = {index}
-                                    >{index+1}</div>
+                                    ></div>
                         })
                     }
                 </div>
