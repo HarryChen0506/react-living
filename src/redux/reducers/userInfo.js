@@ -5,20 +5,16 @@ import {GET_USER_INFO_REQUEST, GET_USER_INFO_SUCCESS, GET_USER_INFO_FAIL} from '
 let initState = {
 }
 export default function reducer(state=initState, action){
+
     switch(action.type){
         case GET_USER_INFO_REQUEST:
-            return {
-                ...state
-            };
+            return Object.assign(state);
+
         case GET_USER_INFO_SUCCESS:
-            return {
-                ...state,
-                ...action.data
-            };
+            return Object.assign(state, action.data);
+
         case GET_USER_INFO_FAIL:
-            return {
-                ...state
-            };
+            return Object.assign(state);
         default: 
             return state
     }

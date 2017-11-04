@@ -7,9 +7,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     //入口
     entry:{
-        app: [ 'react-hot-loader/patch',
-            path.join(__dirname,'src/index.js')
-        ],
         vendor: [
             'react', 
             'react-router-dom', 
@@ -17,6 +14,11 @@ module.exports = {
             'react-dom', 
             'react-redux',
             'redux-thunk'
+        ],
+         app: [ 
+            "babel-polyfill",
+            'react-hot-loader/patch',
+            path.join(__dirname,'src/index.js')
         ]
     }, 
     output: {
@@ -72,13 +74,19 @@ module.exports = {
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
+        new webpack.optimize.CommonsChunkPlugin({   //引用资源单独打包
+            name: 'vendor',
+            minChunks: Infinity
+        }),
         new HtmlWebpackPlugin({
             filename: 'index.html',
-            template: path.join(__dirname, 'src/index.tpl.html')
-        }),
-        new webpack.optimize.CommonsChunkPlugin({   //引用资源单独打包
-            name: 'vendor'
+            template: path.join(__dirname, 'src/index.tpl.html'),
+            chunks: ['manifest', 'app', 'vendor'],
+            // chunks: ['manifest', 'app'],
+            // necessary to consistently work with multiple chunks via CommonsChunkPlugin
+            chunksSortMode: 'dependency'
         })
+       
     ],
     resolve: {
         alias: {
