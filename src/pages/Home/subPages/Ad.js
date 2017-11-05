@@ -14,14 +14,13 @@ export default class Ad extends Component {
            <div>
             {
                 this.state.data.length
-                ? <HomeAd data={this.state.data}/>
+                ? <HomeAd title={this.props.title} data={this.state.data}/>
                 : <div>{/* 加载中... */}</div>
             }
             </div>
         )
     }
     componentDidMount(){
-        console.log(123);
         this.getAdData();
     }
     getAdData(){

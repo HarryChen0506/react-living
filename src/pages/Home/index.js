@@ -6,6 +6,7 @@ import {bindActionCreators} from 'redux';
 import HomeHeader from 'components/HomeHeader';
 import Category from 'components/Category';
 import Ad from './subPages/Ad.js';
+import List from './subPages/List.js';
 
 class Home extends Component {
     constructor(props,context){
@@ -17,8 +18,10 @@ class Home extends Component {
             <div>
                 <HomeHeader cityName={ userInfo.cityName }/>
                 <Category/>
+                <Ad title="超值特惠"/>
+                <List title="猜你喜欢" cityName={ userInfo.cityName }/>
+                
                 <div style={{height: '15px'}}>{/* 分割线 */}</div>
-                <Ad/>
 
             </div>            
         )

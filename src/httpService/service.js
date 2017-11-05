@@ -48,6 +48,11 @@ const home = {
         let api = '/api/home/ad';
         let url = getUrl(api, params);
         return http.httpGet(url);
+    },
+    getListData: function(params){
+        let api = '/api/home/list';
+        let url = getUrl(api, params);
+        return http.httpGet(url);
     }
 }
 

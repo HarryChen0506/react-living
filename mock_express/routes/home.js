@@ -7,6 +7,7 @@ var jsonParser = bodyParser.json()
 var urlencodedParser = bodyParser.urlencoded({ extended: false }) 
 
 var homeAdData = require('../mockData/home/ad.js')
+var homeListData = require('../mockData/home/list.js')
 
 /* GET home page. */
 router.get('/ad', function(req, res, next) {
@@ -32,6 +33,16 @@ router.post('/ad', function(req, res, next) {
     })
   
 });
+
+router.get('/list', function(req, res, next) {   
+    res.json({
+        status:"200",
+        result:{
+            data: homeListData
+        }             
+    })  
+});
+
 
 router.post('/form', urlencodedParser, function(req, res, next) {    
     if (!req.body) return res.sendStatus(400);

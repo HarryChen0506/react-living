@@ -22,7 +22,7 @@ export default class Category extends Component {
             disableScroll: false,
             stopPropagation: false,
             callback: (index, elem)=> {
-                console.log(index);
+                // console.log(index);
                 this.setState({
                     index: index
                 })

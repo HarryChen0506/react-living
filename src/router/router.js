@@ -32,7 +32,6 @@ const getRouter = ()=> {
 }
    
     
-console.log('router')
 export default getRouter;
 
 /*

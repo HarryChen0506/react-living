@@ -8,7 +8,7 @@ export default class HomeAd extends Component {
     render(){
         return (
             <div className="home-ad">
-                <h2>超值特惠</h2>
+                <h2>{this.props.title}</h2>
                 <div className="ad-container clear-fix">
                     {this.props.data.map((item, index) => {
                         return <div key={index} className="ad-item f-left">
