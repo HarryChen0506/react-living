@@ -7,6 +7,7 @@ import HomeHeader from 'components/HomeHeader';
 import Category from 'components/Category';
 import Ad from './subPages/Ad.js';
 import List from './subPages/List.js';
+import Loading from 'components/Loading';
 
 class Home extends Component {
     constructor(props,context){
@@ -20,8 +21,6 @@ class Home extends Component {
                 <Category/>
                 <Ad title="超值特惠"/>
                 <List title="猜你喜欢" cityName={ userInfo.cityName }/>
-                
-                <div style={{height: '15px'}}>{/* 分割线 */}</div>
 
             </div>            
         )

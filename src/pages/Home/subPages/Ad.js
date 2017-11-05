@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import HomeAd from 'components/HomeAd';
 import httpService from 'httpService/service.js'
+import Loading from 'components/Loading';
 
 export default class Ad extends Component {
     constructor(props,context){
@@ -15,7 +16,7 @@ export default class Ad extends Component {
             {
                 this.state.data.length
                 ? <HomeAd title={this.props.title} data={this.state.data}/>
-                : <div>{/* 加载中... */}</div>
+                : <Loading/>
             }
             </div>
         )

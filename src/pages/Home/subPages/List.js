@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import HomeListComponent from 'components/HomeListComponent';
 import LoadMore from 'components/LoadMore';
+import Loading from 'components/Loading';
 import httpService from 'httpService/service.js'
 import './list.scss'
 
@@ -21,13 +22,12 @@ export default class List extends Component {
                 {
                     this.state.data.length
                     ? <HomeListComponent data={this.state.data}/>
-                    : <div>{/* 加载中... */}</div>
+                    : <Loading/>
                 } 
                 {
                     this.state.hasMore
-                    ? <LoadMore isLoadingMore={this.state.isLoadingMore} loadMoreFn={this.loadMore.bind(this)} />
-                    :<div>没有了</div>
-
+                    ? <LoadMore isLoadingMore={this.state.isLoadingMore} loadMoreFn={this.loadMore.bind(this)} toBottom="100" />
+                    :<div></div>
                 }               
             </div>
         )
@@ -47,7 +47,7 @@ export default class List extends Component {
         })
     }
     loadMore(){
-        console.log('加载更多');
+        // console.log('加载更多');
         this.setState({
             isLoadingMore: true
         })
