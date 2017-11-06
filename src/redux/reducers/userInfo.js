@@ -8,13 +8,13 @@ export default function reducer(state=initState, action){
 
     switch(action.type){
         case GET_USER_INFO_REQUEST:
-            return Object.assign(state);
+            return Object.assign({},state);
 
         case GET_USER_INFO_SUCCESS:
-            return Object.assign(state, action.data);
+            return Object.assign({},state, action.data);
 
         case GET_USER_INFO_FAIL:
-            return Object.assign(state);
+            return Object.assign({},state);
         default: 
             return state
     }

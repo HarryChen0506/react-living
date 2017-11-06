@@ -8,6 +8,7 @@ import Home from 'pages/Home';
 import Page1 from 'pages/Page1';
 import Counter from 'pages/Counter';
 import User from 'pages/User';
+import City from 'pages/City';
 import NotFound from 'pages/NotFound';
 
 
@@ -24,6 +25,7 @@ const getRouter = ()=> {
                     <Route  path="/page1" component={Page1} ></Route>
                     <Route  path="/counter" component={Counter} ></Route>
                     <Route  path="/user" component={User} ></Route>
+                    <Route  path="/city" component={City} ></Route>
                     <Route path="*" component={NotFound} ></Route>
                 </Switch>                   
             </div>        

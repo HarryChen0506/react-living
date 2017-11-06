@@ -1,5 +1,6 @@
 
 import React, {Component} from 'react';
+import {BrowserRouter , HashRouter as Router, Route, Switch, Link, hashHistory, browserHistory} from 'react-router-dom';
 import './homeHeader.scss';
 
 export default class HomeHeader extends Component {
@@ -10,8 +11,10 @@ export default class HomeHeader extends Component {
         return (
             <div id="home-header" className="home-header">
                <div className="home-header-left f-left">
-                   {this.props.cityName}
-                   <i className="fa fa-angle-down m_left_5"></i>
+                    <Link to="/city">
+                        <span>{this.props.cityName}</span>
+                        <i className="fa fa-angle-down m_left_5"></i>
+                    </Link>
                </div>
                <div className="home-header-right f-right">
                    <i className="fa fa-user"></i>

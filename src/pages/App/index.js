@@ -20,12 +20,15 @@ class App extends Component {
     }
     componentWillMount() {
         // 获取位置信息
-        let cityName = '南京'
+        let cityName = '南京',
+            cityCode = '1007';
         if (cityName == null) {
-            cityName = '北京'
+            cityName = '北京',
+            cityCode = '1001'
         }
         this.props.getUserInfoActions.getUserInfoSuccess({
-            cityName: cityName
+            cityName: cityName,
+            cityCode: cityCode
         })
 
     }
