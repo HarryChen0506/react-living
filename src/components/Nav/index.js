@@ -9,6 +9,7 @@ export default class Nav extends Component {
                 <ul>
                     <li> <Link to="/">Home页面</Link></li>
                     <li> <Link to="/page1">Page1页面</Link></li>
+                    <li> <Link to="/page2">Page2页面</Link></li>
                     <li> <Link to="/counter">Counter页面</Link></li>
                     <li> <Link to="/user">User页面</Link></li>
                     <li> <Link to="/city">City页面</Link></li>

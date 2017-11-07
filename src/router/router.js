@@ -23,6 +23,7 @@ const getRouter = ()=> {
                 <Switch>
                     <Route exact  path="/" component={Home} ></Route>
                     <Route  path="/page1" component={Page1} ></Route>
+                    <Route  path="/page2" component={Page1} ></Route>
                     <Route  path="/counter" component={Counter} ></Route>
                     <Route  path="/user" component={User} ></Route>
                     <Route  path="/city" component={City} ></Route>
