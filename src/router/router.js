@@ -1,14 +1,17 @@
 //路由入口
 import React from 'react';
 // BromserRouter作为Router的名字引入 （as） 
-import {BrowserRouter , HashRouter as Router, Route, Switch, Link, hashHistory, browserHistory} from 'react-router-dom';
+import {BrowserRouter , HashRouter as Router, Route, Switch, Link, withRouter} from 'react-router-dom';
 // import {Router, Route ,Link, hashHistory, browserHistory} from 'react-router';
+import createHashHistory from 'history/createHashHistory'
+const history = createHashHistory();
 
 import Home from 'pages/Home';
 import Page1 from 'pages/Page1';
 import Counter from 'pages/Counter';
 import User from 'pages/User';
 import City from 'pages/City';
+import Search from 'pages/Search';
 import NotFound from 'pages/NotFound';
 
 
@@ -18,7 +21,7 @@ import NotFound from 'pages/NotFound';
 
 const getRouter = ()=> {   
     return (
-        <Router>
+        <Router history={history}>
             <div>
                 <Switch>
                     <Route exact  path="/" component={Home} ></Route>
@@ -27,6 +30,7 @@ const getRouter = ()=> {
                     <Route  path="/counter" component={Counter} ></Route>
                     <Route  path="/user" component={User} ></Route>
                     <Route  path="/city" component={City} ></Route>
+                    <Route  path="/search/:category/:keyword" component={Search} ></Route>
                     <Route path="*" component={NotFound} ></Route>
                 </Switch>                   
             </div>        
