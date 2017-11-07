@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import HomeListComponent from 'components/HomeListComponent';
+import HomeListComponent from 'components/ListComponent';
 import LoadMore from 'components/LoadMore';
 import Loading from 'components/Loading';
 import httpService from 'httpService/service.js'
@@ -9,10 +9,10 @@ export default class List extends Component {
     constructor(props,context){
         super(props,context);
         this.state = {
+            page: 0,
             data: [],
             hasMore: false,    // 数据是否还有更多
             isLoadingMore: false,  //是否正在加载状态
-
         }
     }
     render(){
@@ -33,25 +33,14 @@ export default class List extends Component {
         )
     }
     componentDidMount(){
-        this.getListData();
+        this.loadFirstList();
     }
     getListData(){
-        httpService.home.getListData({cityName:'shenzhen'}).then((data)=>{
-            let res = data.result.data;
-            this.setState({
-                data: res.data,
-                hasMore: res.hasMore
-            })
-        },function(err){
-            console.log(err)
-        })
-    }
-    loadMore(){
-        // console.log('加载更多');
-        this.setState({
-            isLoadingMore: true
-        })
-        httpService.home.getListData({cityName:'shenzhen'}).then((data)=>{
+        this.searchParams = {
+            page: this.state.page,            
+            cityName: this.props.cityName||''
+        }  
+        httpService.home.getListData( this.searchParams).then((data)=>{
             let res = data.result.data;
             this.setState({
                 data: this.state.data.concat(res.data),
@@ -59,10 +48,32 @@ export default class List extends Component {
                 isLoadingMore: false
             })
         },function(err){
-            this.setState({
-                isLoadingMore: true
-            })
             console.log(err)
         })
+    }
+    loadFirstList(){
+        this.getListData();
+    }
+    loadMore(){
+        // console.log('加载更多');
+        this.setState({
+            isLoadingMore: true,
+            page: this.state.page +1
+        },()=>{
+            this.getListData()
+        })
+        // httpService.home.getListData({cityName:'shenzhen'}).then((data)=>{
+        //     let res = data.result.data;
+        //     this.setState({
+        //         data: this.state.data.concat(res.data),
+        //         hasMore: res.hasMore,
+        //         isLoadingMore: false
+        //     })
+        // },function(err){
+        //     this.setState({
+        //         isLoadingMore: true
+        //     })
+        //     console.log(err)
+        // })
     }
 }

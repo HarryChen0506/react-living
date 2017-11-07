@@ -49,11 +49,13 @@ class SearchHeader extends Component {
         // console.log(this.state)
     }
     handleEnter(value){
-        // console.log('enter',value);
+        // console.log('enter',value);       
         this.setState({
             keyword: value
-        })
-        this.props.history.push('/search/all/'+this.state.keyword)
+        },()=>{
+            console.log('enter',value);
+            this.props.history.push('/search/all/'+this.state.keyword)
+        })     
     }
 }
  const SearchHeaderWithRouter = withRouter(SearchHeader);

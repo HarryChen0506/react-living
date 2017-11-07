@@ -31,7 +31,7 @@ class HomeHeader extends Component {
                         <SearchInput className="m_left_5" 
                                     placeholder="请输入关键字" 
                                     onEnter={ this.handleEnter.bind(this) }
-                                    onChange={ this.handleChange.bind(this)}/>
+                                    onChange={ this.handleChange.bind(this) }/>
                     </div>
                </div>
             </div>          
@@ -52,8 +52,10 @@ class HomeHeader extends Component {
         // console.log('enter',value);
         this.setState({
             keyword: value
-        })
-        this.props.history.push('/search/all/'+this.state.keyword)
+        },()=>{
+            console.log('enter',value);
+            this.props.history.push('/search/all/'+this.state.keyword)
+        })        
     }
     handleClickSearch(){
         // console.log(this.state)

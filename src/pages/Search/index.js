@@ -16,9 +16,11 @@ class Search extends Component {
         return (
             <div>
                 <SearchHeader/>
-                search
-                <p>{this.props.match.params.category} {this.props.match.params.keyword}</p>
-                 <List title="猜你喜欢" cityName={ this.props.userInfo.cityName }/>
+                <p>{this.props.match.params.category} {this.props.match.params.keyword} { this.props.userInfo.cityName }</p>
+                 <List title="猜你喜欢" 
+                            cityName={ this.props.userInfo.cityName } 
+                            keyword={this.props.match.params.keyword}
+                            category={this.props.match.params.category}/>
             
             </div>            
         )
