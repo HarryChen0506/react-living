@@ -31,6 +31,7 @@ const getRouter = ()=> {
                     <Route  path="/user" component={User} ></Route>
                     <Route  path="/city" component={City} ></Route>
                     <Route  path="/search/:category/:keyword" component={Search} ></Route>
+                    <Route  path="/search/:category" component={Search} ></Route>
                     <Route path="*" component={NotFound} ></Route>
                 </Switch>                   
             </div>        

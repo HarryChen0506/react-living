@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {BrowserRouter , HashRouter as Router, Route, Switch, Link,withRouter} from 'react-router-dom';
 import ReactSwipe from 'react-swipe';
 import './category.scss';
 
@@ -35,10 +36,13 @@ export default class Category extends Component {
 
                     { categoryList.length >0 && categoryList.map((item, index)=>{
                         return  <ul className="carousel-container clear-fix" key={'box_'+index}>                                    
-                                    { item.map((one, num)=>{
-                                            return  <li key={one.code} className="carousel-one f-left" style={{backgroundImage: 'url(/api/images/category/'+one.img_url+')'}}>
-                                                        {one.name}
-                                                    </li>
+                                    { item.map((one, num)=>{                                        
+                                    return  <Link to={'/search/'+one.code} key={one.code}>
+                                                <li className="carousel-one f-left" style={{backgroundImage: 'url(/api/images/category/'+one.img_url+')'}}>
+                                                    {one.name}
+                                                </li>                                            
+                                            </Link>
+                                            
                                     }) }                                   
                                 </ul>
                     }) }

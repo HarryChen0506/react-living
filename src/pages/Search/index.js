@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import {BrowserRouter , HashRouter as Router, Route, Switch, Link, hashHistory, browserHistory} from 'react-router-dom';
+import {BrowserRouter , HashRouter as Router, Route, Switch, Link,withRouter} from 'react-router-dom';
 import Loading from 'components/Loading';
 import SearchHeader from  'components/SearchHeader'
 import List from './subPages/list'
@@ -16,11 +16,9 @@ class Search extends Component {
         return (
             <div>
                 <SearchHeader/>
-                <p>{this.props.match.params.category} {this.props.match.params.keyword} { this.props.userInfo.cityName }</p>
-                 <List title="猜你喜欢" 
-                            cityName={ this.props.userInfo.cityName } 
-                            keyword={this.props.match.params.keyword}
-                            category={this.props.match.params.category}/>
+                 <List  cityName={ this.props.userInfo.cityName } 
+                        keyword={this.props.match.params.keyword}
+                        category={this.props.match.params.category}/>
             
             </div>            
         )
