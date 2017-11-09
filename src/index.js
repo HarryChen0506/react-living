@@ -44,7 +44,7 @@ if(module.hot){
     })
 }
 
-console.log('ReactDom',ReactDom)
+// console.log('ReactDom',ReactDom)
 
 // 初始化
 // renderWithHotReload(App);

@@ -55,10 +55,18 @@ const home = {
         return http.httpGet(url);
     }
 }
+const detail = {
+    getInfoData: function(id,params){
+        let api = '/api/detail/info/'+id;
+        let url = getUrl(api, params);
+        return http.httpGet(url);
+    }
+}
 
 
 const httpService = {
     demo,
-    home
+    home,
+    detail
 }
 export default httpService

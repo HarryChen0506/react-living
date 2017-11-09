@@ -12,6 +12,7 @@ import Counter from 'pages/Counter';
 import User from 'pages/User';
 import City from 'pages/City';
 import Search from 'pages/Search';
+import Detail from 'pages/Detail';
 import NotFound from 'pages/NotFound';
 
 
@@ -32,6 +33,7 @@ const getRouter = ()=> {
                     <Route  path="/city" component={City} ></Route>
                     <Route  path="/search/:category/:keyword" component={Search} ></Route>
                     <Route  path="/search/:category" component={Search} ></Route>
+                    <Route  path="/detail/:goodsId" component={Detail} ></Route>
                     <Route path="*" component={NotFound} ></Route>
                 </Switch>                   
             </div>        
