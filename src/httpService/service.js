@@ -60,7 +60,12 @@ const detail = {
         let api = '/api/detail/info/'+id;
         let url = getUrl(api, params);
         return http.httpGet(url);
-    }
+    },
+    getCommentListData: function(id,params){
+        let api = '/api/detail/comment/'+id;
+        let url = getUrl(api, params);
+        return http.httpGet(url);
+    },
 }
 
 

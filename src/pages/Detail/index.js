@@ -7,6 +7,7 @@ import {BrowserRouter , HashRouter as Router, Route, Switch, Link,withRouter} fr
 import Loading from 'components/Loading';
 import Header from 'components/Header';
 import Info from './subPages/Info';
+import Comment from './subPages/Comment';
 
 class Detail extends Component {
     constructor(props,context){
@@ -18,7 +19,7 @@ class Detail extends Component {
             <div>
                 <Header title="商户详情"/>
                 <Info id={goodsId}/>
-               <p>商品{this.props.match.params.goodsId}</p>
+                <Comment id={goodsId} title="用户评论"/>
             </div>            
         )
     }  
