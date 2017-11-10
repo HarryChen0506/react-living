@@ -13,6 +13,7 @@ import User from 'pages/User';
 import City from 'pages/City';
 import Search from 'pages/Search';
 import Detail from 'pages/Detail';
+import Login from 'pages/Login';
 import NotFound from 'pages/NotFound';
 
 
@@ -25,7 +26,7 @@ const getRouter = ()=> {
         <Router history={history}>
             <div>
                 <Switch>
-                    <Route exact  path="/" component={Home} ></Route>
+                    <Route  exact  path="/" component={Home} ></Route>
                     <Route  path="/page1" component={Page1} ></Route>
                     <Route  path="/page2" component={Page1} ></Route>
                     <Route  path="/counter" component={Counter} ></Route>
@@ -34,7 +35,9 @@ const getRouter = ()=> {
                     <Route  path="/search/:category/:keyword" component={Search} ></Route>
                     <Route  path="/search/:category" component={Search} ></Route>
                     <Route  path="/detail/:goodsId" component={Detail} ></Route>
-                    <Route path="*" component={NotFound} ></Route>
+                    <Route  exact path="/login" component={Login} ></Route>
+                    <Route  path='/Login/:router' component={Login}></Route>
+                    <Route  path="*" component={NotFound} ></Route>
                 </Switch>                   
             </div>        
         </Router>
