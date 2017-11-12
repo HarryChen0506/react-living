@@ -36,7 +36,7 @@ const getRouter = ()=> {
                     <Route  path="/search/:category" component={Search} ></Route>
                     <Route  path="/detail/:goodsId" component={Detail} ></Route>
                     <Route  exact path="/login" component={Login} ></Route>
-                    <Route  path='/Login/:router' component={Login}></Route>
+                    <Route  path='/login/:router' component={Login}></Route>
                     <Route  path="*" component={NotFound} ></Route>
                 </Switch>                   
             </div>        

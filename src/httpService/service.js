@@ -67,11 +67,19 @@ const detail = {
         return http.httpGet(url);
     },
 }
+const user = {
+    getOrderListData: function(params){
+        let api = '/api/user/orderList';
+        let url = getUrl(api, params);
+        return http.httpGet(url);
+    }
+}
 
 
 const httpService = {
     demo,
     home,
-    detail
+    detail,
+    user
 }
 export default httpService

@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as getUserInfoActions from 'actions/userInfo.js';
-import {BrowserRouter , HashRouter as Router, Route, Switch, Link,withRouter} from 'react-router-dom';
+import {BrowserRouter , HashRouter as Router, Route, Switch, Link, withRouter} from 'react-router-dom';
 import Loading from 'components/Loading';
 import Header from 'components/Header';
 import LoginComponent from 'components/Login';
@@ -36,6 +36,8 @@ class Login extends Component {
              this.setState({
                 checkDidLogin: false
             })
+        }else{
+            this.props.history.push('/user')
         }
     }
     setUserName(userName){
@@ -47,12 +49,15 @@ class Login extends Component {
     LoginCallBack(value){
         console.log(value)
         this.setUserName(value.userName);
-        console.log(this.props)
+       
         let router = this.props.match.params.router;
         if(!router){
             console.log('去用户页面');
+            // console.log(this.props);
+            this.props.history.push('/user')
+
         }else {
-            console.log('去'+router+'页面')
+            console.log('去'+router+'页面');
         }
     }
 
@@ -68,4 +73,4 @@ const mapDispatchToProps = (dispatch)=> {
          getUserInfoActions: bindActionCreators(getUserInfoActions, dispatch)       
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default withRouter( connect(mapStateToProps, mapDispatchToProps)(Login) );
