@@ -5,7 +5,8 @@
  */
 //babel 处理es6 例如async await
 // require("babel-core/register");
-// require("babel-register");
+require("babel-register");
+require("babel-polyfill");
 
 var app = require('../app');
 var debug = require('debug')('mock-express:server');

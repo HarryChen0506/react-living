@@ -51,19 +51,27 @@ app.use(function(err, req, res, next) {
 
 module.exports = app;
 
-console.log('index')
+console.log('demo')
 var sleep = function (time) {
     return new Promise(function (resolve, reject) {
         setTimeout(function () {
             // 模拟出错了，返回 ‘error’
-            resolve('hello');
+            if(false){
+                resolve('hello');
+            }else{
+                reject('错误');
+            }            
         }, time);
     })
 };
 async function start () {
     for (var i = 1; i <= 5; i++) {
         console.log(`当前是第${i}次等待..`);
-        const value = await sleep(1000);
+        try {
+            const value = await sleep(1000);
+        }catch(err){
+            console.log(err)
+        }        
         console.log('value',value);
     }
 };

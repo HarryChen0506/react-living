@@ -8,7 +8,7 @@
     "dev": "webpack --config webpack.dev.config.js",
     "start": "webpack-dev-server --config webpack.dev.config.js --color --progress",
     "build": "webpack --config webpack.config.js",
-    "mock": "node ./mock_express/bin/www"
+    "mock": "nodemon ./mock_express/bin/www"
   },
   "repository": {
     "type": "git",
