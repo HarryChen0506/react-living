@@ -50,3 +50,21 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+
+console.log('index')
+var sleep = function (time) {
+    return new Promise(function (resolve, reject) {
+        setTimeout(function () {
+            // 模拟出错了，返回 ‘error’
+            resolve('hello');
+        }, time);
+    })
+};
+async function start () {
+    for (var i = 1; i <= 5; i++) {
+        console.log(`当前是第${i}次等待..`);
+        const value = await sleep(1000);
+        console.log('value',value);
+    }
+};
+start();

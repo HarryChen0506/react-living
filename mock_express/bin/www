@@ -3,6 +3,9 @@
 /**
  * Module dependencies.
  */
+//babel 处理es6 例如async await
+// require("babel-core/register");
+// require("babel-register");
 
 var app = require('../app');
 var debug = require('debug')('mock-express:server');
